@@ -10,48 +10,70 @@ const __dirname = dirname(__filename);
 
 const spellingNormalizer = new EnglishSpellingNormalizer();
 
-// Utility: Normalize & slugify title
-const slugify = (str) =>
-  normalizeText(str)
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, '')    // remove non-word chars
-    .replace(/\s+/g, '-')        // spaces to dashes
-    .replace(/--+/g, '-')        // collapse dashes
-    .replace(/^-+|-+$/g, '')     // trim
-    .slice(0, 60);               // limit length
+const toKey = (dateStr) => {
+  const date = new Date(dateStr);
+  const yyyy = date.getFullYear();
+  const mm = String(date.getMonth() + 1).padStart(2, '0');
+  const dd = String(date.getDate()).padStart(2, '0');
+  return `${yyyy}/${mm}/${dd}`;
+};
 
-// Utility: Build MDX content
 const toMDX = ({ title, author, datePublished, content }) => `---\ntitle: "${title}"\nauthor: "${author}"\ndatePublished: "${datePublished}"\n---\n\n${content.join('\n\n')}`;
 
-// Main
+// Load articles
 const raw = await readFile(join(__dirname, 'scraped-data', 'articles.json'), 'utf-8');
 const articles = JSON.parse(raw);
 
+const seenTitles = new Set();
+
+// Group by date folder
+const grouped = {};
+for (const news of articles) {
+  const titleKey = normalizeText(news.title).toLowerCase().trim();
+  if (seenTitles.has(titleKey)) continue; // skip duplicates
+  seenTitles.add(titleKey);
+
+  const date = new Date(news.datePublished);
+  const yyyy = date.getFullYear();
+  const mm = String(date.getMonth() + 1).padStart(2, '0');
+  const dd = String(date.getDate()).padStart(2, '0');
+  const key = `${yyyy}/${mm}/${dd}`;
+
+  if (!grouped[key]) grouped[key] = [];
+  grouped[key].push(news);
+}
+
 await rm(join(__dirname, 'news'), { force: true, recursive: true });
 
-await Promise.all(
-  articles.map(async (news) => {
-    const date = new Date(news.datePublished);
-    const [yyyy, mm, dd] = [
-      date.getFullYear(),
-      String(date.getMonth() + 1).padStart(2, '0'),
-      String(date.getDate()).padStart(2, '0'),
-    ];
+const writeTasks = [];
 
-    const dir = join(__dirname, 'news', yyyy.toString(), mm, dd);
-    await mkdir(dir, { recursive: true });
+for (const [key, group] of Object.entries(grouped)) {
+  // Sort by published date ascending
+group.sort((a, b) => {
+  const d1 = new Date(a.datePublished);
+  const d2 = new Date(b.datePublished);
+  const diff = d1 - d2;
+  if (diff !== 0) return diff;
 
+  // reverse insertion order for exact same timestamp
+  return articles.indexOf(b) - articles.indexOf(a);
+});
+
+  const dir = join(__dirname, 'news', ...key.split('/'));
+  await mkdir(dir, { recursive: true });
+
+  group.forEach((news, i) => {
     const title = spellingNormalizer.normalize(normalizeText(news.title));
     const author = normalizeName(news.author);
     const content = news.content.map(p =>
       spellingNormalizer.normalize(normalizeParagraph(normalizeText(p)))
     );
-
     const mdx = toMDX({ title, author, datePublished: news.datePublished, content });
-    const filename = `${slugify(news.title)}.mdx`;
-    const outputPath = join(dir, filename);
+    const outputPath = join(dir, `${i + 1}.mdx`);
+    writeTasks.push(writeFile(outputPath, mdx.trim()).then(() =>
+      console.log('✅ Created:', outputPath)
+    ));
+  });
+}
 
-    await writeFile(outputPath, mdx.trim());
-    console.log('✅ Created:', outputPath);
-  })
-);
+await Promise.all(writeTasks);
