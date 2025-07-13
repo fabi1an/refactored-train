@@ -62,18 +62,37 @@ group.sort((a, b) => {
   const dir = join(__dirname, 'news', ...key.split('/'));
   await mkdir(dir, { recursive: true });
 
-  group.forEach((news, i) => {
-    const title = spellingNormalizer.normalize(normalizeText(news.title));
-    const author = normalizeName(news.author);
-    const content = news.content.map(p =>
-      spellingNormalizer.normalize(normalizeParagraph(normalizeText(p)))
-    );
-    const mdx = toMDX({ title, author, datePublished: news.datePublished, content });
-    const outputPath = join(dir, `${i + 1}.mdx`);
-    writeTasks.push(writeFile(outputPath, mdx.trim()).then(() =>
-      console.log('✅ Created:', outputPath)
-    ));
-  });
+group.forEach((news, i) => {
+  const title = spellingNormalizer.normalize(normalizeText(news.title));
+  const author = normalizeName(news.author);
+  const content = news.content.map(p =>
+    spellingNormalizer.normalize(normalizeParagraph(normalizeText(p)))
+  );
+
+  const firstParagraph = content[0] ?? '';
+  const words = firstParagraph.split(/\s+/);
+  const description = words.length <= 15
+    ? firstParagraph
+    : words.slice(0, 15).join(' ') + '...';
+
+  const slug = normalizeText(news.title)
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/--+/g, '-')
+    .replace(/^-+|-+$/g, '');
+
+  const date = new Date(news.datePublished);
+  const formattedDate = `${date.getFullYear()}/${String(date.getMonth() + 1).padStart(2, '0')}/${String(date.getDate()).padStart(2, '0')}`;
+
+  const mdx = `---\nslug: ${slug}\ntitle: ${title}\ndescription: ${description}\nauthor: ${author}\ndate: ${formattedDate}\n---\n\n${content.join('\n\n')}`;
+
+  const outputPath = join(dir, `${i + 1}.mdx`);
+  writeTasks.push(writeFile(outputPath, mdx.trim()).then(() =>
+    console.log('✅ Created:', outputPath)
+  ));
+});
+
 }
 
 await Promise.all(writeTasks);
