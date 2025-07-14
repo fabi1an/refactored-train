@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import { normalizeText, normalizeName, normalizeParagraph } from 'normalize-text';
 import { EnglishSpellingNormalizer } from '@shelf/text-normalizer';
+import transformTitle from 'title';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -48,14 +49,12 @@ await rm(join(__dirname, 'news'), { force: true, recursive: true });
 const writeTasks = [];
 
 for (const [key, group] of Object.entries(grouped)) {
-  // Sort by published date ascending
   group.sort((a, b) => {
     const d1 = new Date(a.datePublished);
     const d2 = new Date(b.datePublished);
     const diff = d1 - d2;
     if (diff !== 0) return diff;
 
-    // reverse insertion order for exact same timestamp
     return articles.indexOf(b) - articles.indexOf(a);
   });
 
@@ -63,11 +62,19 @@ for (const [key, group] of Object.entries(grouped)) {
   await mkdir(dir, { recursive: true });
 
   group.forEach((news, i) => {
-    const title = spellingNormalizer.normalize(normalizeText(news.title));
+    const title = transformTitle(spellingNormalizer.normalize(normalizeText(news.title)));
     const author = normalizeName(news.author);
+    const thumbnail = news.thumbnail;
+    const images = Array.isArray(news.images) ? news.images : [];
     const content = news.content.map(p =>
       spellingNormalizer.normalize(normalizeParagraph(normalizeText(p)))
     );
+
+    const imageMarkdown = images.map(img =>
+      `![${img.caption ?? ''}](${img.url})`
+    ).join('\n');
+
+    const fullContent = [...content, imageMarkdown].filter(Boolean).join('\n\n');
 
     const firstParagraph = content[0] ?? '';
     const words = firstParagraph.split(/\s+/);
@@ -91,8 +98,9 @@ for (const [key, group] of Object.entries(grouped)) {
       `description: "${description}"\n` +
       `author: "${author}"\n` +
       `date: "${formattedDate}"\n` +
+      `thumbnail: "${thumbnail}"\n` +
       `---\n\n` +
-      content.join('\n\n');
+      fullContent;
 
     const filename = String(i + 1).padStart(3, '0') + '.mdx';
     const outputPath = join(dir, filename);
