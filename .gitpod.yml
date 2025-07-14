@@ -1,0 +1,2 @@
+tasks:
+  - before: sudo apt-get update && sudo apt-get install -y libgtk-3-0 libx11-xcb1 libnss3 libxss1 libasound2 libgbm1 libxshmfence1 && curl -fsSL https://bun.sh/install | bash && source /home/gitpod/.bashrc && exit
