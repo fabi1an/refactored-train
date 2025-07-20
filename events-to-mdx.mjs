@@ -73,12 +73,15 @@ for (const [key, group] of Object.entries(grouped)) {
     const datePublished = new Date(event.datePublished);
     const formattedDatePublished = `${datePublished.getFullYear()}/${String(datePublished.getMonth() + 1).padStart(2, '0')}/${String(datePublished.getDate()).padStart(2, '0')}`;
 
-    const formattedDateRange = event.dateRange.map((y) => y.map((x) => (new Date(x))).map((dateRange) =>  `${dateRange.getFullYear()}/${String(dateRange.getMonth() + 1).padStart(2, '0')}/${String(dateRange.getDate()).padStart(2, '0')}`))
+    const formattedDateRange = event.dateRange.map((y) => !Array.isArray(y) ? (() => {
+      const dateRange = new Date(y);
+      return `${dateRange.getFullYear()}/${String(dateRange.getMonth() + 1).padStart(2, '0')}/${String(dateRange.getDate()).padStart(2, '0')}`
+    })() : y.map((x) => (new Date(x))).map((dateRange) =>  `${dateRange.getFullYear()}/${String(dateRange.getMonth() + 1).padStart(2, '0')}/${String(dateRange.getDate()).padStart(2, '0')}`))
     const mdx = `---\n` +
       `slug: "${slug}"\n` +
       `title: "${title}"\n` +
       `datePublished: "${formattedDatePublished}"\n` +
-      `dateRange: [${formattedDateRange.map((y) => y.map((x) =>`"${x}"`).join(", ")).map((x) => `[${x}]`).join(", ")}]\n` +
+      `dateRange: [${formattedDateRange.map((y) => !Array.isArray(y) ? `"${y}"` : `[${y.map((x) =>`"${x}"`).join(", ")}]`).join(", ")}]\n` +
       `---\n\n` +
       `<!--- content start --->\n\n` +
   (event.content.length ? `${event.content.join("\n").trim()}\n\n` : "") +
