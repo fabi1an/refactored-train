@@ -31,7 +31,7 @@ const scrapeCourses = async (page) => {
   });
 };
 const scrapeEvents = async (page) => {
-  await page.goto("https://www.goldenstate.edu.ph/events", { waitUntil: "domcontentloaded" });
+  await page.goto("https://www.goldenstate.edu.ph/category/events/", { waitUntil: "domcontentloaded" });
   await page.waitForSelector(".fl-post");
   const events = await page.evaluate(() => {
     const eventElements = document.querySelectorAll(".fl-post");
@@ -249,21 +249,21 @@ const scrapeAllArticles = async (page) => {
 };
 async function main() {
   try {
-    // const coursePage = await scrape("https://www.goldenstate.edu.ph");
-    // if (coursePage) {
-    //   const courses = await scrapeCourses(coursePage);
-    //   await saveToFile(courses, "courses.json");
-    // }
-    // const eventPage = await scrape("https://www.goldenstate.edu.ph");
-    // if (eventPage) {
-    //   const events = await scrapeEvents(eventPage);
-    //   await saveToFile(events, "events.json");
-    // }
-    const articlePage = await scrape("https://www.goldenstate.edu.ph/news");
-    if (articlePage) {
-      const articles = await scrapeAllArticles(articlePage);
-      await saveToFile(articles, "articles.json");
+    const coursePage = await scrape("https://www.goldenstate.edu.ph");
+    if (coursePage) {
+      const courses = await scrapeCourses(coursePage);
+      await saveToFile(courses, "courses.json");
     }
+    const eventPage = await scrape("https://www.goldenstate.edu.ph");
+    if (eventPage) {
+      const events = await scrapeEvents(eventPage);
+      await saveToFile(events, "events.json");
+    }
+    // const articlePage = await scrape("https://www.goldenstate.edu.ph/news");
+    // if (articlePage) {
+    //   const articles = await scrapeAllArticles(articlePage);
+    //   await saveToFile(articles, "articles.json");
+    // }
   }
   catch (error) {
     console.error("Scraping error:", error);

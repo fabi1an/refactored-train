@@ -2,7 +2,7 @@
 	"dependencies": {
 		"@shelf/text-normalizer": "^2.0.1",
 		"normalize-text": "^2.6.0",
-		"puppeteer": "^24.12.1",
+		"puppeteer": "^24.14.0",
 		"title": "^4.0.1"
 	}
 }
