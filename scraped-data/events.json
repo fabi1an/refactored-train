@@ -4,9 +4,7 @@
     "link": "https://www.goldenstate.edu.ph/events/june-25-2025-classes-begin-1st-sem-sy-2025-2026/",
     "author": "Goldenstate",
     "dateRange": [
-      [
-        "2025-06-25"
-      ]
+      "2025-06-25"
     ],
     "datePublished": "2025-01-28",
     "thumbnail": null,
@@ -54,9 +52,7 @@
     "link": "https://www.goldenstate.edu.ph/events/may-3-2025-graduation-college/",
     "author": "Goldenstate",
     "dateRange": [
-      [
-        "2025-05-03"
-      ]
+      "2025-05-03"
     ],
     "datePublished": "2025-01-28",
     "thumbnail": null,
@@ -70,9 +66,7 @@
     "link": "https://www.goldenstate.edu.ph/events/may-2-2025-graduation-shs/",
     "author": "Goldenstate",
     "dateRange": [
-      [
-        "2025-05-02"
-      ]
+      "2025-05-02"
     ],
     "datePublished": "2025-01-28",
     "thumbnail": null,
@@ -119,7 +113,12 @@
     "title": "Final Exam-Graduating",
     "link": "https://www.goldenstate.edu.ph/events/april-10-12-20025-final-exam-graduating/",
     "author": "Goldenstate",
-    "dateRange": [],
+    "dateRange": [
+      [
+        "2025-04-10",
+        "2025-04-12"
+      ]
+    ],
     "datePublished": "2025-01-28",
     "thumbnail": null,
     "content": [
@@ -132,9 +131,7 @@
     "link": "https://www.goldenstate.edu.ph/events/april-9-2025-araw-ng-kagitingan/",
     "author": "Goldenstate",
     "dateRange": [
-      [
-        "2025-04-09"
-      ]
+      "2025-04-09"
     ],
     "datePublished": "2025-01-28",
     "thumbnail": null,
@@ -182,9 +179,7 @@
     "link": "https://www.goldenstate.edu.ph/events/march-8-2025-hrm-skills/",
     "author": "Goldenstate",
     "dateRange": [
-      [
-        "2025-03-08"
-      ]
+      "2025-03-08"
     ],
     "datePublished": "2025-01-28",
     "thumbnail": null,
@@ -198,9 +193,7 @@
     "link": "https://www.goldenstate.edu.ph/events/feb-27-2025-gensan-foundation/",
     "author": "Goldenstate",
     "dateRange": [
-      [
-        "2025-02-27"
-      ]
+      "2025-02-27"
     ],
     "datePublished": "2025-01-28",
     "thumbnail": null,
@@ -214,9 +207,7 @@
     "link": "https://www.goldenstate.edu.ph/events/feb-25-2025-edsa-revolution-anniv/",
     "author": "Goldenstate",
     "dateRange": [
-      [
-        "2025-02-25"
-      ]
+      "2025-02-25"
     ],
     "datePublished": "2025-01-28",
     "thumbnail": null,
@@ -247,9 +238,7 @@
     "link": "https://www.goldenstate.edu.ph/events/jan-29-2025-chinese-new-year/",
     "author": "Goldenstate",
     "dateRange": [
-      [
-        "2025-01-29"
-      ]
+      "2025-01-29"
     ],
     "datePublished": "2025-01-28",
     "thumbnail": null,
@@ -262,7 +251,12 @@
     "title": "Final Exam",
     "link": "https://www.goldenstate.edu.ph/events/final-exam-december-12-14-2024/",
     "author": "Goldenstate",
-    "dateRange": [],
+    "dateRange": [
+      [
+        "2024-12-12",
+        "2024-12-14"
+      ]
+    ],
     "datePublished": "2024-11-21",
     "thumbnail": null,
     "content": [
@@ -274,7 +268,9 @@
     "title": "Non-working Holiday",
     "link": "https://www.goldenstate.edu.ph/events/non-working-holiday-december-8-2024/",
     "author": "Goldenstate",
-    "dateRange": [],
+    "dateRange": [
+      "2024-12-08"
+    ],
     "datePublished": "2024-11-21",
     "thumbnail": null,
     "content": [
@@ -286,7 +282,9 @@
     "title": "Legal Holiday",
     "link": "https://www.goldenstate.edu.ph/events/legal-holiday-november-30-2024/",
     "author": "Goldenstate",
-    "dateRange": [],
+    "dateRange": [
+      "2024-11-30"
+    ],
     "datePublished": "2024-11-21",
     "thumbnail": null,
     "content": [
@@ -298,7 +296,12 @@
     "title": "Semi Final Exam",
     "link": "https://www.goldenstate.edu.ph/events/semi-final-exam-november-21-23-2024/",
     "author": "Goldenstate",
-    "dateRange": [],
+    "dateRange": [
+      [
+        "2024-11-21",
+        "2024-11-23"
+      ]
+    ],
     "datePublished": "2024-11-21",
     "thumbnail": null,
     "content": [
@@ -328,9 +331,7 @@
     "link": "https://www.goldenstate.edu.ph/events/nov-08-2024-goldenstate-college-intramurals-opening-parade/",
     "author": "Goldenstate",
     "dateRange": [
-      [
-        "2024-11-08"
-      ]
+      "2024-11-08"
     ],
     "datePublished": "2024-10-29",
     "thumbnail": null,
@@ -344,9 +345,7 @@
     "link": "https://www.goldenstate.edu.ph/events/nov-04-2024-back-to-school-office-resume/",
     "author": "Goldenstate",
     "dateRange": [
-      [
-        "2024-11-04"
-      ]
+      "2024-11-04"
     ],
     "datePublished": "2024-10-29",
     "thumbnail": null,
@@ -360,9 +359,7 @@
     "link": "https://www.goldenstate.edu.ph/events/nov-02-2024-all-souls-day/",
     "author": "Goldenstate",
     "dateRange": [
-      [
-        "2024-11-02"
-      ]
+      "2024-11-02"
     ],
     "datePublished": "2024-10-29",
     "thumbnail": null,
@@ -376,9 +373,7 @@
     "link": "https://www.goldenstate.edu.ph/events/nov-01-2024-all-saints-day/",
     "author": "Goldenstate",
     "dateRange": [
-      [
-        "2024-11-01"
-      ]
+      "2024-11-01"
     ],
     "datePublished": "2024-10-29",
     "thumbnail": null,
@@ -393,7 +388,8 @@
     "author": "Goldenstate",
     "dateRange": [
       [
-        "2024-10-28"
+        "2024-10-28",
+        "2024-11-02"
       ]
     ],
     "datePublished": "2024-10-29",
@@ -408,9 +404,7 @@
     "link": "https://www.goldenstate.edu.ph/events/oct-18-2024-fire-and-earthquake-drill/",
     "author": "Goldenstate",
     "dateRange": [
-      [
-        "2024-10-18"
-      ]
+      "2024-10-18"
     ],
     "datePublished": "2024-10-29",
     "thumbnail": null,
@@ -424,10 +418,7 @@
     "link": "https://www.goldenstate.edu.ph/events/oct-141516-2024-midterm-examination/",
     "author": "Goldenstate",
     "dateRange": [
-      [
-        "2024-10-14",
-        "2024-10-16"
-      ]
+      "2025-10-14"
     ],
     "datePublished": "2024-10-29",
     "thumbnail": null,
@@ -441,9 +432,7 @@
     "link": "https://www.goldenstate.edu.ph/events/oct-04-2024-8th-pin-investiture-white-coat-and-pinning-ceremony/",
     "author": "Goldenstate",
     "dateRange": [
-      [
-        "2024-10-04"
-      ]
+      "2024-10-04"
     ],
     "datePublished": "2024-10-29",
     "thumbnail": null,
@@ -457,9 +446,7 @@
     "link": "https://www.goldenstate.edu.ph/events/oct-03-2024-goldenstate-college-teachers-day-celebration/",
     "author": "Goldenstate",
     "dateRange": [
-      [
-        "2024-10-03"
-      ]
+      "2024-10-03"
     ],
     "datePublished": "2024-10-29",
     "thumbnail": null,
@@ -473,9 +460,7 @@
     "link": "https://www.goldenstate.edu.ph/events/sept-16-2024-holiday-maulid-un-nabi/",
     "author": "Goldenstate",
     "dateRange": [
-      [
-        "2024-09-16"
-      ]
+      "2024-09-16"
     ],
     "datePublished": "2024-10-29",
     "thumbnail": null,
@@ -489,10 +474,7 @@
     "link": "https://www.goldenstate.edu.ph/events/sept-12-13-14-2024-prelim-examination/",
     "author": "Goldenstate",
     "dateRange": [
-      [
-        "2024-09-12",
-        "2024-09-14"
-      ]
+      "2025-09-12"
     ],
     "datePublished": "2024-10-29",
     "thumbnail": null,
@@ -523,9 +505,7 @@
     "link": "https://www.goldenstate.edu.ph/events/aug-30-2024-goldenstate-college-gensan-buwan-ng-wika-culmination-program-lagao-campus/",
     "author": "Goldenstate",
     "dateRange": [
-      [
-        "2024-08-30"
-      ]
+      "2024-08-30"
     ],
     "datePublished": "2024-08-14",
     "thumbnail": null,
@@ -539,9 +519,7 @@
     "link": "https://www.goldenstate.edu.ph/events/aug-26-2024-holiday-philippine-national-heroes-day/",
     "author": "Goldenstate",
     "dateRange": [
-      [
-        "2024-08-26"
-      ]
+      "2024-08-26"
     ],
     "datePublished": "2024-08-14",
     "thumbnail": null,
@@ -555,9 +533,7 @@
     "link": "https://www.goldenstate.edu.ph/events/aug-21-2024-holiday-ninoy-aquino-day/",
     "author": "Goldenstate",
     "dateRange": [
-      [
-        "2024-08-21"
-      ]
+      "2024-08-21"
     ],
     "datePublished": "2024-08-14",
     "thumbnail": null,
@@ -588,9 +564,7 @@
     "link": "https://www.goldenstate.edu.ph/events/aug-16-2024-goldenstate-college-koronadal/",
     "author": "Goldenstate",
     "dateRange": [
-      [
-        "2024-08-16"
-      ]
+      "2024-08-16"
     ],
     "datePublished": "2024-08-14",
     "thumbnail": null,
@@ -605,9 +579,7 @@
     "link": "https://www.goldenstate.edu.ph/events/aug-12-2024-goldenstate-college-opening-of-classes/",
     "author": "Goldenstate",
     "dateRange": [
-      [
-        "2024-08-12"
-      ]
+      "2024-08-12"
     ],
     "datePublished": "2024-08-14",
     "thumbnail": null,
@@ -621,9 +593,9 @@
     "link": "https://www.goldenstate.edu.ph/events/goldenstate-college-grand-alumni-homecoming-alert/",
     "author": "Goldenstate",
     "dateRange": [
-      [
-        "2020-05-10"
-      ]
+      "2020-05-10",
+      "2020-04-30",
+      "2025-01-01"
     ],
     "datePublished": "2020-03-09",
     "thumbnail": null,
@@ -683,7 +655,8 @@
     "author": "Goldenstate",
     "dateRange": [
       [
-        "2020-01-16"
+        "2020-01-16",
+        "2022-01-16"
       ]
     ],
     "datePublished": "2020-03-02",
